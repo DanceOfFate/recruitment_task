@@ -1,0 +1,12 @@
+.form-section {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+} 
+
+.names {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
