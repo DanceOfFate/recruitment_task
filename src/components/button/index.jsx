@@ -1,6 +1,6 @@
 import "./index.css"
 
-export const Button = ({children, disabled, type, style, onClick, buttonClass}) => {
+export const Button = ({children, disabled, type, style, onClick, buttonClass, formaction}) => {
     return (
         <button 
             className={buttonClass}
@@ -8,6 +8,7 @@ export const Button = ({children, disabled, type, style, onClick, buttonClass}) 
             style={style}
             type={type}
             onClick={onClick}
+            formaction={formaction}
         >
             <span>{children}</span>
         </button> 
