@@ -1,11 +1,12 @@
 import { useState } from "react"
+import { Button } from "../button"
 import FormInput from "../formInput"
 import "./index.css"
 
 const INITIAL_INPUT_STATE = {
     first_name: "",
     last_name: "",
-    service_information: ""
+    service_information: "",
 }
 
 export const ContactForm = () => {
@@ -33,6 +34,14 @@ export const ContactForm = () => {
         const formattedPhoneNumber = formatPhoneNumber(event.target.value)
         setPhoneNumber(formattedPhoneNumber);
         console.log(phoneNumber);
+    }
+
+    const handleOnSubmit = () => {
+      setFormData({
+        ...formData,
+        phone_number: phoneNumber
+      })
+      console.log(formData);
     }
 
     const formatPhoneNumber = (value) => {
@@ -78,6 +87,16 @@ export const ContactForm = () => {
               value={formData.service_information}
               onChange={handleTextInputChange}  
             />
+          </div>
+          <div className="button-container">
+            <Button 
+              buttonClass="secondary-button"
+              onClick={handleOnSubmit}
+              type="button"
+              disabled={!formData.first_name || !formData.last_name || !phoneNumber || formData.service_information}
+              >
+                Submit now
+             </Button>
           </div>
         </div>
     ) 
